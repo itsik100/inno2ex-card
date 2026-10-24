@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Itzik Iluz – Innovation to Execution</title>
+<meta name="description" content="Itzik Iluz – יועץ אימוץ טכנולוגיה. עוזרים לארגונים לבחור נכון, להטמיע נכון ולהפיק ערך אמיתי מטכנולוגיה ובינה מלאכותית.">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1E3A5F;
+    --blue-deep: #172E4C;
+    --light: #F4F6F9;
+    --white: #FFFFFF;
+    --white-85: rgba(255, 255, 255, .85);
+    --white-60: rgba(255, 255, 255, .6);
+    --line: rgba(30, 58, 95, .12);
+    --radius: 4px;
+    --max: 1040px;
+    --font-he: "Heebo", system-ui, sans-serif;
+    --font-en: "Inter", "Heebo", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: var(--font-he);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--white);
+    background: var(--blue);
+  }
+  [lang="en"], .en { font-family: var(--font-en); }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+
+  /* ---------- Sections ---------- */
+  .section { position: relative; padding: 72px 0; overflow: hidden; }
+  .section--blue { background: var(--blue); color: var(--white); }
+  .section--light { background: var(--light); color: var(--blue); }
+
+  .tech-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; color: var(--white); opacity: .065;
+  }
+
+  .eyebrow {
+    font-family: var(--font-en);
+    font-size: .8rem; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; margin: 0 0 12px;
+    opacity: .75;
+  }
+  h2 {
+    font-weight: 800; font-size: clamp(1.6rem, 3.6vw, 2.25rem);
+    line-height: 1.25; margin: 0 0 16px;
+  }
+  .lead { font-size: 1.1rem; max-width: 640px; margin: 0 0 40px; }
+  .section--blue .lead { color: var(--white-85); }
+
+  /* ---------- Logo ---------- */
+  .logo { display: inline-flex; flex-direction: column; align-items: stretch; text-decoration: none; }
+  .logo__name {
+    font-family: var(--font-en); font-weight: 800;
+    font-size: 1.5rem; line-height: 1.1; letter-spacing: -.01em;
+  }
+  .logo__rule { height: 1px; background: var(--white); margin: 8px 0 7px; }
+  .logo__tag {
+    font-family: var(--font-en); font-weight: 600;
+    font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--white-85); white-space: nowrap;
+  }
+  .logo--lg .logo__name { font-size: 2.1rem; }
+  .logo--lg .logo__tag { font-size: .78rem; }
+
+  /* ---------- Header ---------- */
+  .top { position: relative; z-index: 2; padding: 20px 0; }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .top__nav { display: flex; gap: 20px; font-weight: 500; font-size: .95rem; }
+  .top__nav a { text-decoration: none; color: var(--white-85); }
+  .top__nav a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 48px; padding: 12px 22px;
+    border: 2px solid var(--white); border-radius: var(--radius);
+    background: transparent; color: var(--white);
+    font: 700 1rem/1.2 var(--font-he); text-decoration: none; cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .btn:hover, .btn:focus-visible { background: var(--white); color: var(--blue); }
+  .btn--primary { background: var(--white); color: var(--blue); }
+  .btn--primary:hover, .btn--primary:focus-visible { background: transparent; color: var(--white); }
+  .btn:focus-visible, .top__nav a:focus-visible { outline: 3px solid #9CC3F0; outline-offset: 3px; }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+
+  /* Buttons on light sections invert */
+  .section--light .btn { border-color: var(--blue); color: var(--blue); }
+  .section--light .btn:hover, .section--light .btn:focus-visible { background: var(--blue); color: var(--white); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 0 0 0; }
+  .hero__grid {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; align-items: end;
+    padding-top: 32px;
+  }
+  .hero__text { padding-bottom: 72px; }
+  .hero__identity {
+    display: inline-block; margin: 0 0 20px;
+    font-weight: 500; font-size: 1rem; color: var(--white-85);
+    border-inline-start: 3px solid var(--white); padding-inline-start: 12px;
+  }
+  .hero h1 {
+    font-weight: 800; font-size: clamp(2rem, 5.2vw, 3.4rem);
+    line-height: 1.15; margin: 0 0 20px; letter-spacing: -.01em;
+  }
+  .hero__sub { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--white-85); max-width: 560px; margin: 0 0 32px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .hero__photo { position: relative; align-self: end; display: flex; justify-content: center; }
+  .hero__photo img { width: 100%; max-width: 420px; height: auto; }
+  .hero__photo-fallback {
+    display: none; width: 100%; max-width: 360px; aspect-ratio: 4 / 5;
+    color: var(--white); opacity: .18;
+  }
+  .hero__photo.is-missing img { display: none; }
+  .hero__photo.is-missing .hero__photo-fallback { display: block; }
+
+  /* ---------- Services ---------- */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card {
+    background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px; border-top: 4px solid var(--blue);
+  }
+  .card h3 { margin: 0 0 8px; font-weight: 800; font-size: 1.2rem; }
+  .card p { margin: 0 0 12px; color: #33475F; }
+  .card ul { margin: 0; padding: 0; list-style: none; color: #33475F; font-size: .95rem; }
+  .card li { padding-inline-start: 18px; position: relative; margin-bottom: 4px; }
+  .card li::before { content: "←"; position: absolute; inset-inline-start: 0; color: var(--blue); font-weight: 700; }
+
+  /* ---------- Approach ---------- */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: step; }
+  .step {
+    position: relative; padding: 24px 20px;
+    border: 1px solid rgba(255,255,255,.25); border-radius: var(--radius);
+    background: rgba(255,255,255,.03);
+  }
+  .step::before {
+    counter-increment: step; content: "0" counter(step);
+    display: block; font-family: var(--font-en); font-weight: 800; font-size: 1.6rem; line-height: 1;
+    margin-bottom: 14px;
+  }
+  .step h3 { margin: 0 0 6px; font-weight: 800; font-size: 1.1rem; }
+  .step p { margin: 0; color: var(--white-85); font-size: .95rem; }
+
+  /* ---------- Principle quote (light) ---------- */
+  .principle { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .principle blockquote {
+    margin: 0; font-weight: 800; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.35;
+    border-inline-start: 4px solid var(--blue); padding-inline-start: 20px;
+  }
+  .principle p { margin: 0 0 12px; color: #33475F; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding: 0; list-style: none; }
+  .tags li {
+    font-family: var(--font-en); font-weight: 600; font-size: .85rem;
+    border: 1px solid var(--blue); border-radius: var(--radius); padding: 4px 10px;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact { text-align: center; }
+  .contact .lead { margin-inline: auto; }
+  .contact .actions { justify-content: center; }
+  .contact__logo { margin: 0 auto 32px; }
+  .details {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px;
+    margin: -16px 0 36px; font-size: 1.1rem;
+  }
+  .details dt { font-size: .8rem; color: var(--white-85); margin-bottom: 2px; }
+  .details dd { margin: 0; font-weight: 700; }
+  .details a { text-decoration: none; }
+  .details a:hover, .details a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+  .footer { padding: 24px 0; text-align: center; font-size: .85rem; color: var(--white-60); background: var(--blue-deep); }
+
+  /* ---------- QR dialog ---------- */
+  .btn--sm { min-height: 40px; padding: 8px 14px; font-size: .9rem; }
+  .qr { border: 0; padding: 0; border-radius: 8px; max-width: calc(100% - 32px); background: var(--white); color: var(--blue); }
+  .qr::backdrop { background: rgba(23, 46, 76, .85); }
+  .qr__panel { padding: 32px 28px 28px; text-align: center; width: 340px; max-width: 100%; }
+  .qr .logo { margin: 0 auto 20px; }
+  .logo--dark .logo__rule { background: var(--blue); }
+  .logo--dark .logo__tag { color: #33475F; }
+  .qr__title { font-size: 1.25rem; margin: 0 0 16px; }
+  .qr__code { display: flex; justify-content: center; margin: 0 auto 12px; }
+  .qr__code svg { width: 260px; height: 260px; }
+  .qr__url { margin: 0 0 20px; font-family: var(--font-en); font-size: .9rem; color: #33475F; word-break: break-all; }
+  .qr .actions { justify-content: center; }
+  .qr .btn { flex: 1 1 0; }
+  .btn--blue { background: var(--blue); border-color: var(--blue); color: var(--white); }
+  .btn--blue:hover, .btn--blue:focus-visible { background: var(--white); color: var(--blue); }
+  .btn--outline-blue { border-color: var(--blue); color: var(--blue); }
+  .btn--outline-blue:hover, .btn--outline-blue:focus-visible { background: var(--blue); color: var(--white); }
+
+  /* ---------- Entrance animations ---------- */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.is-in { opacity: 1; transform: none; }
+  .no-js .reveal { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn { transition: none; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .steps { grid-template-columns: repeat(2, 1fr); }
+    .principle { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 720px) {
+    .section { padding: 56px 0; }
+    .top__nav { display: none; }
+    .hero__grid { grid-template-columns: 1fr; gap: 0; padding-top: 16px; }
+    .hero__text { padding-bottom: 24px; }
+    .hero__photo img { max-width: 300px; }
+    .hero__photo-fallback { max-width: 240px; }
+    .grid { grid-template-columns: 1fr; }
+    .actions .btn { flex: 1 1 100%; }
+  }
+  @media (max-width: 420px) {
+    .steps { grid-template-columns: 1fr; }
+    .logo--lg .logo__name { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body class="no-js">
+
+<!-- Shared technology texture: circuit traces + grid, referenced by every blue section -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="circuit" width="160" height="160" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M0 40h40l20 20h40l20-20h40"/>
+        <path d="M40 0v20l20 20"/>
+        <path d="M120 160v-30l-20-20H60l-20 20v30"/>
+        <path d="M0 110h20l10-10h20"/>
+        <path d="M160 100h-30l-10 10"/>
+        <circle cx="40" cy="40" r="3"/>
+        <circle cx="140" cy="40" r="3"/>
+        <circle cx="100" cy="110" r="3"/>
+        <circle cx="50" cy="100" r="3"/>
+        <circle cx="120" cy="110" r="2"/>
+      </g>
+      <g fill="currentColor"><circle cx="0" cy="0" r="1"/><circle cx="80" cy="80" r="1"/></g>
+    </pattern>
+    <radialGradient id="fade" cx="25%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".25"/>
+    </radialGradient>
+    <mask id="fadeMask"><rect width="100%" height="100%" fill="url(#fade)"/></mask>
+  </defs>
+</svg>
+
+<!-- ================= HERO ================= -->
+<header class="section section--blue hero" id="top">
+  <svg class="tech-bg" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#circuit)" mask="url(#fadeMask)"/></svg>
+
+  <div class="top">
+    <div class="wrap">
+      <a class="logo" href="#top" lang="en" aria-label="Itzik Iluz – Innovation to Execution">
+        <span class="logo__name">Itzik Iluz</span>
+        <span class="logo__rule" aria-hidden="true"></span>
+        <span class="logo__tag">Innovation → Execution</span>
+      </a>
+      <nav class="top__nav" aria-label="ניווט">
+        <a href="#services">שירותים</a>
+        <a href="#approach">הגישה</a>
+        <a href="#contact">יצירת קשר</a>
+      </nav>
+      <button class="btn btn--sm" type="button" data-qr-open aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3V3Zm2 2v4h4V5H5Zm8-2h8v8h-8V3Zm2 2v4h4V5h-4ZM3 13h8v8H3v-8Zm2 2v4h4v-4H5Zm8-2h2v2h-2v-2Zm2 2h2v2h-2v-2Zm2-2h2v2h-2v-2Zm2 2h2v2h-2v-2Zm-6 2h2v2h-2v-2Zm2 2h2v2h-2v-2Zm2-2h2v2h-2v-2Zm2 2h2v2h-2v-2Z"/></svg>
+        QR
+      </button>
+    </div>
+  </div>
+
+  <div class="wrap hero__grid">
+    <div class="hero__text">
+      <p class="hero__identity reveal"><span lang="en">Itzik Iluz</span> – יועץ אימוץ טכנולוגיה</p>
+      <h1 class="reveal">רוב הארגונים מתחילים מהטכנולוגיה. אנחנו מתחילים מהצורך העסקי.</h1>
+      <p class="hero__sub reveal">עוזרים לארגונים לבחור נכון, להטמיע נכון ולהפיק ערך אמיתי מטכנולוגיה ובינה מלאכותית.</p>
+      <div class="actions reveal">
+        <a class="btn btn--primary" data-link="meeting" href="#contact">לתיאום שיחת היכרות</a>
+        <a class="btn" data-link="whatsapp" href="#contact">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3Z"/></svg>
+          WhatsApp
+        </a>
+        <a class="btn" href="assets/itzik-iluz.vcf" download="Itzik-Iluz.vcf" type="text/vcard">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6Zm9 4c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4Z"/></svg>
+          שמירת איש קשר
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__photo reveal" id="photo">
+      <img src="assets/photo-cutout.png" alt="איציק אילוז" width="598" height="816">
+      <!-- Shown only until assets/photo-cutout.png is added -->
+      <svg class="hero__photo-fallback" viewBox="0 0 200 250" fill="currentColor" aria-hidden="true">
+        <circle cx="100" cy="78" r="46"/>
+        <path d="M14 250c0-58 38-102 86-102s86 44 86 102Z"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= SERVICES (light) ================= -->
+<section class="section section--light" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <p class="eyebrow" lang="en">Services</p>
+    <h2 id="services-title" class="reveal">מה אנחנו עושים</h2>
+    <p class="lead reveal">ההצלחה לא נמדדת בבחירת הכלי, אלא באימוץ שלו. כל שירות מתחיל בהבנת הבעיה ומסתיים בתוצאה מדידה.</p>
+
+    <div class="grid">
+      <article class="card reveal">
+        <h3>אבחון וייעוץ</h3>
+        <p>הבנה עמוקה של המצב הקיים לפני כל החלטה טכנולוגית.</p>
+        <ul>
+          <li>דוחות ייעוץ להנהלה</li>
+          <li>ניתוח אימוץ ושימוש בפועל</li>
+          <li>זיהוי שורשי בעיה</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <h3>תכנון תהליכים</h3>
+        <p>תהליך ברור קודם — טכנולוגיה אחר כך.</p>
+        <ul>
+          <li>מיפוי תהליכים</li>
+          <li>מודלים תפעוליים</li>
+          <li>ניתוח דרישות</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <h3>אסטרטגיית AI</h3>
+        <p>בינה מלאכותית שמחוברת לצורך עסקי, לא להייפ.</p>
+        <ul>
+          <li><span lang="en">Agentic AI</span></li>
+          <li>ארכיטקטורות <span lang="en">MCP</span></li>
+          <li>אוטומציה של תהליכי עבודה</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <h3>פיתוח <span lang="en">MVP</span></h3>
+        <p>מוכיחים ערך מהר, בקטן, לפני השקעה גדולה.</p>
+        <ul>
+          <li><span lang="en">AI Operators</span></li>
+          <li>הוכחות היתכנות (<span lang="en">POC</span>)</li>
+          <li>ארכיטקטורות אינטגרציה</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPROACH (blue) ================= -->
+<section class="section section--blue" id="approach" aria-labelledby="approach-title">
+  <svg class="tech-bg" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#circuit)"/></svg>
+  <div class="wrap" style="position:relative">
+    <p class="eyebrow" lang="en">Approach</p>
+    <h2 id="approach-title" class="reveal">הגישה: מהצורך — לביצוע</h2>
+    <p class="lead reveal">סדר הפעולות הפוך מהמקובל. קודם מבינים, אחר כך בוחרים, ורק אז מטמיעים.</p>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <h3>להבין את הבעיה</h3>
+        <p>אבחון, ניתוח שורש ומיפוי בעלי עניין.</p>
+      </li>
+      <li class="step reveal">
+        <h3>לעצב את התהליך</h3>
+        <p>מיפוי, פישוט והגדרת בעלות ברורה.</p>
+      </li>
+      <li class="step reveal">
+        <h3>לבחור טכנולוגיה</h3>
+        <p>הכלי הנכון לצורך — ולא להפך.</p>
+      </li>
+      <li class="step reveal">
+        <h3>להטמיע ולמדוד</h3>
+        <p>ניהול שינוי, אימוץ בפועל ותוצאות מדידות.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PRINCIPLE (light) ================= -->
+<section class="section section--light" aria-labelledby="principle-title">
+  <div class="wrap principle">
+    <blockquote class="reveal" id="principle-title">
+      הטמעה מוצלחת חשובה יותר מבחירת הטכנולוגיה הנכונה.
+    </blockquote>
+    <div class="reveal">
+      <p>אני מהנדס תעשייה וניהול שמתמחה בחדשנות, אימוץ טכנולוגיה ושיפור תהליכים. התפקיד שלי הוא לחבר בין אנשים, תהליכים וטכנולוגיה — ולהפוך רעיונות לתוצאות.</p>
+      <ul class="tags" aria-label="תעשיות">
+        <li>LegalTech</li>
+        <li>ConTech</li>
+        <li>Professional Services</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT (blue) ================= -->
+<section class="section section--blue contact" id="contact" aria-labelledby="contact-title">
+  <svg class="tech-bg" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#circuit)" mask="url(#fadeMask)"/></svg>
+  <div class="wrap" style="position:relative">
+    <div class="logo logo--lg contact__logo reveal" lang="en">
+      <span class="logo__name">Itzik Iluz</span>
+      <span class="logo__rule" aria-hidden="true"></span>
+      <span class="logo__tag">Innovation → Execution</span>
+    </div>
+    <h2 id="contact-title" class="reveal">בואו נתחיל מהצורך.</h2>
+    <p class="lead reveal">שיחת היכרות קצרה כדי להבין את האתגר — ולבדוק אם ואיך אפשר לעזור.</p>
+    <dl class="details reveal">
+      <div><dt>שם</dt><dd>איציק אילוז</dd></div>
+      <div><dt>טלפון</dt><dd><a href="tel:+972507407643" dir="ltr">050-740-7643</a></dd></div>
+      <div><dt>אימייל</dt><dd><a href="mailto:itzik@inno2ex.com" lang="en">itzik@inno2ex.com</a></dd></div>
+    </dl>
+    <div class="actions reveal">
+      <a class="btn btn--primary" data-link="meeting" href="#contact">לתיאום שיחת היכרות</a>
+      <a class="btn" data-link="whatsapp" href="#contact">WhatsApp</a>
+      <a class="btn" data-link="phone" href="#contact">התקשרו</a>
+      <a class="btn" data-link="email" href="#contact">אימייל</a>
+      <a class="btn" data-link="linkedin" href="#contact" lang="en">LinkedIn</a>
+      <a class="btn" data-link="website" href="https://inno2ex.com" lang="en">inno2ex.com</a>
+      <a class="btn" href="assets/itzik-iluz.vcf" download="Itzik-Iluz.vcf" type="text/vcard">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6Zm9 4c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4Z"/></svg>
+        שמירת איש קשר
+      </a>
+      <button class="btn" type="button" data-qr-open aria-haspopup="dialog">הצגת QR</button>
+      <button class="btn" type="button" id="share-card">שיתוף הכרטיס</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <span lang="en" dir="ltr">© <span id="year">2026</span> Itzik Iluz · Innovation to Execution</span>
+</footer>
+
+<dialog class="qr" id="qr-dialog" aria-labelledby="qr-title">
+  <div class="qr__panel">
+    <div class="logo logo--dark" lang="en">
+      <span class="logo__name">Itzik Iluz</span>
+      <span class="logo__rule" aria-hidden="true"></span>
+      <span class="logo__tag">Innovation → Execution</span>
+    </div>
+    <h2 id="qr-title" class="qr__title">סרקו לכרטיס הביקור</h2>
+    <div class="qr__code" id="qr-code" role="img" aria-label="קוד QR לכרטיס הביקור"></div>
+    <p class="qr__url" id="qr-url" dir="ltr" lang="en"></p>
+    <div class="actions">
+      <button class="btn btn--blue" type="button" id="qr-share">שיתוף קישור</button>
+      <button class="btn btn--outline-blue" type="button" id="qr-close">סגירה</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- qrcode-generator 1.4.4 (MIT, Kazuhiko Arase) -->
+<script src="assets/vendor/qrcode.js"></script>
+<script>
+  /*
+   * Contact details — the only place to edit.
+   * Empty values hide the matching button.
+   */
+  const CONTACT = {
+    name: "Itzik Iluz",
+    nameHe: "איציק אילוז",
+    title: "יועץ אימוץ טכנולוגיה",
+    org: "Innovation to Execution (I2E)",
+    phone: "+972507407643",
+    whatsapp: "972507407643",   // digits only
+    email: "itzik@inno2ex.com",
+    linkedin: "",         // e.g. "https://www.linkedin.com/in/..."
+    meeting: "",          // booking link (Calendly / Google) — falls back to WhatsApp, email, then website
+    website: "https://inno2ex.com",
+    cardUrl: "https://card.inno2ex.com/"   // public address of this card for the QR
+  };
+
+  (function () {
+    document.body.classList.remove("no-js");
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const waMsg = encodeURIComponent("היי איציק, אשמח לשיחת היכרות");
+    const links = {
+      phone: CONTACT.phone && `tel:${CONTACT.phone}`,
+      whatsapp: CONTACT.whatsapp && `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}`,
+      email: CONTACT.email && `mailto:${CONTACT.email}`,
+      linkedin: CONTACT.linkedin,
+      website: CONTACT.website
+    };
+    links.meeting = CONTACT.meeting || links.whatsapp || links.email || CONTACT.website;
+
+    document.querySelectorAll("[data-link]").forEach(function (a) {
+      const href = links[a.dataset.link];
+      if (!href) { a.hidden = true; return; }
+      a.href = href;
+      if (/^https?:/.test(href)) { a.target = "_blank"; a.rel = "noopener"; }
+    });
+
+    // Photo placeholder until the cutout exists
+    const photo = document.getElementById("photo");
+    const img = photo.querySelector("img");
+    const markMissing = function () { photo.classList.add("is-missing"); };
+    img.addEventListener("error", markMissing);
+    if (img.complete && img.naturalWidth === 0) markMissing();
+
+    // QR + share — the QR always points at the card's public address
+    const cardUrl = CONTACT.cardUrl || location.href.split("#")[0];
+    const dialog = document.getElementById("qr-dialog");
+    let qrDrawn = false;
+    function openQr() {
+      if (!qrDrawn && window.qrcode) {
+        const qr = qrcode(0, "M");
+        qr.addData(cardUrl);
+        qr.make();
+        document.getElementById("qr-code").innerHTML =
+          qr.createSvgTag({ cellSize: 6, margin: 2, scalable: true }).replace(/black/g, "#1E3A5F");
+        qrDrawn = true;
+      }
+      document.getElementById("qr-url").textContent = cardUrl.replace(/^https?:\/\//, "");
+      dialog.showModal();
+    }
+    function shareCard() {
+      const data = { title: CONTACT.name + " – " + CONTACT.title, url: cardUrl };
+      if (navigator.share) { navigator.share(data).catch(function () {}); return; }
+      navigator.clipboard.writeText(cardUrl).then(function () { alert("הקישור הועתק"); });
+    }
+    document.querySelectorAll("[data-qr-open]").forEach(function (b) { b.addEventListener("click", openQr); });
+    document.getElementById("qr-close").addEventListener("click", function () { dialog.close(); });
+    dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
+    document.getElementById("qr-share").addEventListener("click", shareCard);
+    document.getElementById("share-card").addEventListener("click", shareCard);
+
+    // Gentle entrance animations
+    const items = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("is-in"); }); return; }
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 4) * 70 + "ms";
+      io.observe(el);
+    });
+  })();
+</script>
+</body>
+</html>
