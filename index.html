@@ -428,7 +428,7 @@
     <dl class="details reveal">
       <div><dt>שם</dt><dd>איציק אילוז</dd></div>
       <div><dt>טלפון</dt><dd><a href="tel:+972507407643" dir="ltr">050-740-7643</a></dd></div>
-      <div><dt>אימייל</dt><dd><a href="mailto:itzik@inno2ex.com" lang="en">itzik@inno2ex.com</a></dd></div>
+      <div><dt>אימייל</dt><dd><a href="mailto:itzik@inno2ex.com?subject=%D7%A4%D7%A0%D7%99%D7%99%D7%94%20%D7%9E%D7%9B%D7%A8%D7%98%D7%99%D7%A1%20%D7%94%D7%91%D7%99%D7%A7%D7%95%D7%A8%20%D7%94%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99" lang="en">itzik@inno2ex.com</a></dd></div>
     </dl>
     <div class="actions reveal">
       <a class="btn btn--primary" data-link="meeting" href="#contact">לתיאום שיחת היכרות</a>
@@ -494,11 +494,13 @@
     document.body.classList.remove("no-js");
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const waMsg = encodeURIComponent("היי איציק, אשמח לשיחת היכרות");
+    // Messages say they came from the card, to tell them apart from website leads
+    const waMsg = encodeURIComponent("היי איציק, הגעתי דרך כרטיס הביקור הדיגיטלי ואשמח לשיחת היכרות");
+    const mailSubject = encodeURIComponent("פנייה מכרטיס הביקור הדיגיטלי");
     const links = {
       phone: CONTACT.phone && `tel:${CONTACT.phone}`,
       whatsapp: CONTACT.whatsapp && `https://wa.me/${CONTACT.whatsapp}?text=${waMsg}`,
-      email: CONTACT.email && `mailto:${CONTACT.email}`,
+      email: CONTACT.email && `mailto:${CONTACT.email}?subject=${mailSubject}`,
       linkedin: CONTACT.linkedin,
       website: CONTACT.website
     };
