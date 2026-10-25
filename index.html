@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Itzik Iluz – Innovation to Execution</title>
+<title>איציק אילוז – יועץ אימוץ טכנולוגיה</title>
 <meta name="description" content="Itzik Iluz – יועץ אימוץ טכנולוגיה. אני עוזר לארגונים לבחור נכון, להטמיע נכון ולהפיק ערך אמיתי מטכנולוגיה ובינה מלאכותית.">
 <meta name="theme-color" content="#1E3A5F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,20 +64,8 @@
   .lead { font-size: 1.1rem; max-width: 640px; margin: 0 0 40px; }
   .section--blue .lead { color: var(--white-85); }
 
-  /* ---------- Logo ---------- */
-  .logo { display: inline-flex; flex-direction: column; align-items: stretch; text-decoration: none; }
-  .logo__name {
-    font-family: var(--font-en); font-weight: 800;
-    font-size: 1.5rem; line-height: 1.1; letter-spacing: -.01em;
-  }
-  .logo__rule { height: 1px; background: var(--white); margin: 8px 0 7px; }
-  .logo__tag {
-    font-family: var(--font-en); font-weight: 600;
-    font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
-    color: var(--white-85); white-space: nowrap;
-  }
-  .logo--lg .logo__name { font-size: 2.1rem; }
-  .logo--lg .logo__tag { font-size: .78rem; }
+  /* ---------- Name ---------- */
+  .name { font-weight: 800; font-size: 1.35rem; line-height: 1.1; text-decoration: none; }
 
   /* ---------- Header ---------- */
   .top { position: relative; z-index: 2; padding: 20px 0; }
@@ -178,7 +166,6 @@
   .contact { text-align: center; }
   .contact .lead { margin-inline: auto; }
   .contact .actions { justify-content: center; }
-  .contact__logo { margin: 0 auto 32px; }
   .details {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px;
     margin: -16px 0 36px; font-size: 1.1rem;
@@ -224,9 +211,7 @@
   .qr { border: 0; padding: 0; border-radius: 8px; max-width: calc(100% - 32px); background: var(--white); color: var(--blue); }
   .qr::backdrop { background: rgba(23, 46, 76, .85); }
   .qr__panel { padding: 32px 28px 28px; text-align: center; width: 340px; max-width: 100%; }
-  .qr .logo { margin: 0 auto 20px; }
-  .logo--dark .logo__rule { background: var(--blue); }
-  .logo--dark .logo__tag { color: #33475F; }
+  .qr__name { margin: 0 0 12px; }
   .qr__title { font-size: 1.25rem; margin: 0 0 16px; }
   .qr__code { display: flex; justify-content: center; margin: 0 auto 12px; }
   .qr__code svg { width: 260px; height: 260px; }
@@ -265,7 +250,6 @@
   }
   @media (max-width: 420px) {
     .steps { grid-template-columns: 1fr; }
-    .logo--lg .logo__name { font-size: 1.8rem; }
   }
 </style>
 </head>
@@ -303,11 +287,7 @@
 
   <div class="top">
     <div class="wrap">
-      <a class="logo" href="#top" lang="en" aria-label="Itzik Iluz – Innovation to Execution">
-        <span class="logo__name">Itzik Iluz</span>
-        <span class="logo__rule" aria-hidden="true"></span>
-        <span class="logo__tag">Innovation → Execution</span>
-      </a>
+      <a class="name" href="#top">איציק אילוז</a>
       <nav class="top__nav" aria-label="ניווט">
         <a href="#services">שירותים</a>
         <a href="#approach">הגישה</a>
@@ -448,11 +428,6 @@
 <section class="section section--blue contact" id="contact" aria-labelledby="contact-title">
   <svg class="tech-bg" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#circuit)" mask="url(#fadeMask)"/></svg>
   <div class="wrap" style="position:relative">
-    <div class="logo logo--lg contact__logo reveal" lang="en">
-      <span class="logo__name">Itzik Iluz</span>
-      <span class="logo__rule" aria-hidden="true"></span>
-      <span class="logo__tag">Innovation → Execution</span>
-    </div>
     <h2 id="contact-title" class="reveal">בואו נתחיל מהצורך.</h2>
     <p class="lead reveal">שיחת היכרות קצרה, כדי להבין את האתגר שלכם — ולבדוק אם ואיך אני יכול לעזור.</p>
     <dl class="details reveal">
@@ -471,7 +446,6 @@
       <li><a class="icon-btn" href="assets/itzik-iluz.vcf" download="Itzik-Iluz.vcf" type="text/vcard"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6Zm9 4c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4Z"/></svg><span>שמירה</span></a></li>
     </ul>
     <p class="text-links reveal">
-      <a data-link="website" href="https://inno2ex.com" lang="en"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm6.9 6h-2.9a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8ZM12 4a14 14 0 0 1 1.9 4h-3.8A14 14 0 0 1 12 4ZM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4Zm.8 2h2.9a15.7 15.7 0 0 0 1.4 3.6A8 8 0 0 1 5.1 16ZM8 8H5.1a8 8 0 0 1 4.3-3.6A15.7 15.7 0 0 0 8 8Zm4 12a14 14 0 0 1-1.9-4h3.8A14 14 0 0 1 12 20Zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4Zm.3 5.6a15.7 15.7 0 0 0 1.4-3.6h2.9a8 8 0 0 1-4.3 3.6Zm1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4Z"/></svg>inno2ex.com</a>
       <button type="button" data-qr-open aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3V3Zm2 2v4h4V5H5Zm8-2h8v8h-8V3Zm2 2v4h4V5h-4ZM3 13h8v8H3v-8Zm2 2v4h4v-4H5Zm8-2h2v2h-2v-2Zm2 2h2v2h-2v-2Zm2-2h2v2h-2v-2Zm2 2h2v2h-2v-2Zm-6 2h2v2h-2v-2Zm2 2h2v2h-2v-2Zm2-2h2v2h-2v-2Zm2 2h2v2h-2v-2Z"/></svg>QR</button>
       <button type="button" id="share-card"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7a3 3 0 0 0 .1.8L8.4 11.2a3 3 0 1 0 0 3.6l6.7 3.4A3 3 0 1 0 18 16Z"/></svg>שיתוף הכרטיס</button>
     </p>
@@ -481,16 +455,12 @@
 </main>
 
 <footer class="footer">
-  <span lang="en" dir="ltr">© <span id="year">2026</span> Itzik Iluz · Innovation to Execution</span>
+  <span>© <span id="year">2026</span> איציק אילוז</span>
 </footer>
 
 <dialog class="qr" id="qr-dialog" aria-labelledby="qr-title">
   <div class="qr__panel">
-    <div class="logo logo--dark" lang="en">
-      <span class="logo__name">Itzik Iluz</span>
-      <span class="logo__rule" aria-hidden="true"></span>
-      <span class="logo__tag">Innovation → Execution</span>
-    </div>
+    <p class="name qr__name">איציק אילוז</p>
     <h2 id="qr-title" class="qr__title">סרקו לכרטיס הביקור</h2>
     <div class="qr__code" id="qr-code" role="img" aria-label="קוד QR לכרטיס הביקור"></div>
     <p class="qr__url" id="qr-url" dir="ltr" lang="en"></p>
@@ -512,13 +482,12 @@
     name: "Itzik Iluz",
     nameHe: "איציק אילוז",
     title: "יועץ אימוץ טכנולוגיה",
-    org: "Innovation to Execution (I2E)",
     phone: "+972507407643",
     whatsapp: "972507407643",   // digits only
     email: "itzik@inno2ex.com",
     linkedin: "https://www.linkedin.com/in/itzik-iluz-35648182",
     meeting: "https://calendar.app.google/aBkaDpgv9qYhCiEt7",   // Google Calendar booking page; empty falls back to WhatsApp, email, then website
-    website: "https://inno2ex.com",
+    website: "",          // company site — hidden on purpose
     cardUrl: "https://card.inno2ex.com/"   // public address of this card for the QR
   };
 
